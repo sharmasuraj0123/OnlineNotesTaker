@@ -3,6 +3,7 @@ session_start();
 include('connection.php');
 
 //logout
+//password for database: D$_YvN%k@#7^
 include('logout.php');
 
 //remember me
