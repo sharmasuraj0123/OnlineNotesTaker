@@ -28,11 +28,11 @@ body{
 }
 
 .green{
-    background-color: rgba(114,190,35,0.8);   
+    background-color: rgba(51, 51, 50, 0.8);   
 }
 
 .green:hover{
-    background-color: rgb(114,190,35);   
+    background-color: rgb(175, 175, 175);   
 }
 
 /*Style the footer*/
@@ -67,11 +67,11 @@ body{
   color: #ffffff;
 }
 .navbar-custom .navbar-nav > li:last-child > a {
-  border-right: 1px solid #499cc7;
+  border-right: 1px solid #434D53;
 }
 .navbar-custom .navbar-nav > li > a {
   color: #ffffff;
-  border-left: 1px solid #499cc7;
+  border-left: 1px solid #434D53;
 }
 .navbar-custom .navbar-nav > li > a:hover,
 .navbar-custom .navbar-nav > li > a:focus {

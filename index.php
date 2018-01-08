@@ -198,7 +198,7 @@ include('remember.php');
     <!-- Footer-->
       <div class="footer">
           <div class="container">
-              <p>DevelopmentIsland.com Copyright &copy; 2015-<?php $today = date("Y"); echo $today?>.</p>
+              <p> Copyright &copy; 2015-<?php $today = date("Y"); echo $today?>.</p>
           </div>
       </div>
 
