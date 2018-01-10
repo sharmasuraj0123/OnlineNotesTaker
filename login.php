@@ -5,16 +5,16 @@ session_start();
 include("connection.php");
 //Check user input
 $missingEmail = '<p><stong>Please enter your email address!</strong></p>';
-$missingPassword = '<p><stong>Please enter your password!</strong></p>'; 
-   
+$missingPassword = '<p><stong>Please enter your password!</strong></p>';
+
 
 if(empty($_POST["loginemail"])){
-    $errors .= $missingEmail;   
+    $errors .= $missingEmail;
 }else{
     $email = filter_var($_POST["loginemail"], FILTER_SANITIZE_EMAIL);
 }
 if(empty($_POST["loginpassword"])){
-    $errors .= $missingPassword;   
+    $errors .= $missingPassword;
 }else{
     $password = filter_var($_POST["loginpassword"], FILTER_SANITIZE_STRING);
 }
@@ -22,7 +22,7 @@ if(empty($_POST["loginpassword"])){
 if($errors){
     //print error message
     $resultMessage = '<div class="alert alert-danger">' . $errors .'</div>';
-    echo $resultMessage;   
+    echo $resultMessage;
 }else{
     //else: No errors
     //Prepare variables for the query
@@ -47,7 +47,7 @@ else {
     $_SESSION['user_id']=$row['user_id'];
     $_SESSION['username']=$row['username'];
     $_SESSION['email']=$row['email'];
-    
+
     if(empty($_POST['rememberme'])){
         //If remember me is not checked
         echo "success";
@@ -61,30 +61,31 @@ else {
             return $c;
         }
         $cookieValue = f1($authentificator1, $authentificator2);
+        //Storing the cookie for 15 days. 1296000 = 15*24*60*60
         setcookie(
             "rememberme",
             $cookieValue,
             time() + 1296000
         );
-        
+
         //Run query to store them in rememberme table
         function f2($a){
-            $b = hash('sha256', $a); 
+            $b = hash('sha256', $a);
             return $b;
         }
         $f2authentificator2 = f2($authentificator2);
         $user_id = $_SESSION['user_id'];
         $expiration = date('Y-m-d H:i:s', time() + 1296000);
-        
+
         $sql = "INSERT INTO rememberme
         (`authentificator1`, `f2authentificator2`, `user_id`, `expires`)
         VALUES
         ('$authentificator1', '$f2authentificator2', '$user_id', '$expiration')";
         $result = mysqli_query($link, $sql);
         if(!$result){
-            echo  '<div class="alert alert-danger">There was an error storing data to remember you next time.</div>';  
+            echo  '<div class="alert alert-danger">There was an error storing data to remember you next time.</div>';
         }else{
-            echo "success";   
+            echo "success";
         }
     }
 }
