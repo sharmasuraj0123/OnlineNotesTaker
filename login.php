@@ -3,12 +3,11 @@
 session_start();
 //Connect to the database
 include("connection.php");
-//Check user inputs
-    //Define error messages
+//Check user input
 $missingEmail = '<p><stong>Please enter your email address!</strong></p>';
 $missingPassword = '<p><stong>Please enter your password!</strong></p>'; 
-    //Get email and password
-    //Store errors in errors variable
+   
+
 if(empty($_POST["loginemail"])){
     $errors .= $missingEmail;   
 }else{
@@ -55,7 +54,6 @@ else {
     }else{
         //Create two variables $authentificator1 and $authentificator2
         $authentificator1 = bin2hex(openssl_random_pseudo_bytes(10));
-        //2*2*...*2
         $authentificator2 = openssl_random_pseudo_bytes(20);
         //Store them in a cookie
         function f1($a, $b){
@@ -92,12 +90,4 @@ else {
 }
     }
 
-            //else
-                //Create two variables $authentificator1 and $authentificator2
-                //Store them in a cookie
-                //Run query to store them in rememberme table
-                //If query unsuccessful
-                    //print error
-                //else
-                    //print "success"
                     ?>

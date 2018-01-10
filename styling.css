@@ -6,8 +6,8 @@ html{
 /*Background Image*/
 body{
     font-family: Arvo, serif;
-    background: url("image.jpg") no-repeat center center;
-    background-attachment: fixed;
+    background: url("image.jpg") no-repeat center;
+    background-attachment: relative;
     background-size: cover;
 }
 
@@ -18,7 +18,7 @@ body{
     text-align: center;
     letter-spacing: 2.5px;
     padding: 20px;
-    margin-top: 190px;
+    margin-top: 300px;
     margin-left: 130px;
 }
 
